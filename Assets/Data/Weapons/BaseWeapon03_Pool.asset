@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2e7424d2cc7fc479d103a86fd0f526, type: 3}
+  m_Name: BaseWeapon03_Pool
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 3821553000124526518, guid: 6b4eb6effd561b34f981fc4acd653109, type: 3}
+  _startingPoolSize: 50
+  _openPool: 0

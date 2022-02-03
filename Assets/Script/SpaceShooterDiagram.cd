@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SpaceShooter.PlayerShipController" Collapsed="true">
+    <Position X="1" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAIAAAAAAAAAAAAAAAIEAABIAAAiEA=</HashCode>
+      <FileName>Assets\Script\PlayerShipController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpaceShooter.AbstractShipController" Collapsed="true">
+    <Position X="1" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABCAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\AbstractShipController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpaceShooter.AbilityShoot" Collapsed="true">
+    <Position X="5.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAABAEABgAAAAAAAAAAAAACAAAIABAIAAIAAAA=</HashCode>
+      <FileName>Assets\Script\Abilities\AbilityShoot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpaceShooter.AbstractAbility" Collapsed="true">
+    <Position X="5.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAABCAAAAAAEIAAAAAAAAAAAAAAABAAAEAAAAA=</HashCode>
+      <FileName>Assets\Script\Abilities\AbstractAbility.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Orientation="Right" Position="0.139" />
+  </Class>
+  <Class Name="UnityEngine.MonoBehaviour" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SpaceShooter.ShipDataScriptableObject" Collapsed="true">
+    <Position X="9.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAMAQAAAgAAAAAAAAAAAEAAAAEAAgAAAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\ScriptableObjects\ShipDataScriptableObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulletBase" Collapsed="true">
+    <Position X="2.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAQAAQAIACAAAABACEA=</HashCode>
+      <FileName>Assets\Script\Weapons\BulletBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpaceShooter.ObjectPoolScriptableObject" Collapsed="true">
+    <Position X="12" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAABCAAIAAAAAAAACAAAAAAAgAAAAACEEAACAA=</HashCode>
+      <FileName>Assets\Script\ScriptableObjects\ObjectPoolScriptableObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityEngine.ScriptableObject" Collapsed="true">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SpaceShooter.PoolManager" Collapsed="true">
+    <Position X="3.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAACAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\PoolManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="SpaceShooter.Interfaces.ICommandEndAbility" Collapsed="true">
+    <Position X="11.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\Interfaces\ICommandEndAbility.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SpaceShooter.Interfaces.ICommandStartAbility" Collapsed="true">
+    <Position X="13.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\Interfaces\ICommandStartAbility.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="SpaceShooter.ShootType" Collapsed="true">
+    <Position X="11.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Assets\Script\Abilities\AbilityShoot.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SpaceShooter.WeaponType" Collapsed="true">
+    <Position X="13.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Assets\Script\Abilities\AbilityShoot.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
