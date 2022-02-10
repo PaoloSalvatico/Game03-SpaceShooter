@@ -46,7 +46,7 @@ namespace SpaceShooter.EditorUtils
 
             string dataAsString = File.ReadAllText(readPath);
             string[] rows = dataAsString.Split('\n');
-            string[] languages = rows[0].Split('\n');
+            string[] languages = rows[0].Split(',');
            
             ///////// Fase di Scrittura //////////////
             var folderPath = Application.dataPath + "/Script/_Generated/";
@@ -69,6 +69,26 @@ namespace SpaceShooter.EditorUtils
                 sb.AppendLine(languages[i] + ",");
             }
 
+            writePath = folderPath + "LanguagesKey.cs";
+
+            sb = new StringBuilder();
+            sb.AppendLine("namespace SpaceShooter");
+            sb.AppendLine("{");
+            sb.AppendLine("public enum Languages");
+            sb.AppendLine("{");
+            sb.AppendLine("}");
+            sb.AppendLine("}");
+
+            for (int i = 1; i < rows.Length; i++)
+            {
+                var value = rows[i].Split(',')[0];
+                sb.AppendLine(value + ",");
+            }
+
+            using (StreamWriter sw = File.CreateText(writePath))
+            {
+                sw.Write(sb.ToString());
+            }
             using (StreamWriter sw = File.CreateText(writePath))
             {
                 sw.Write(sb.ToString());
