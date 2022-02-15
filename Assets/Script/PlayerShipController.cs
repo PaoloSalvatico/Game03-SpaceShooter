@@ -10,17 +10,18 @@ namespace SpaceShooter
     /// Mantiene i dati principali e il sistema di input
     /// </summary>
     [DisallowMultipleComponent]
+    [AddComponentMenu("SpaceShooter/PlayerShipController")]
     public class PlayerShipController : AbstractShipController
     {
         protected GameInput _playerControls;
 
         protected AbilityShoot[] _shootAbilities;
+        protected PlayerMovement _playerMovement;
 
         private void Awake()
         {
             _playerControls = new GameInput();
 
-            //  _playerControls.Player.Move.performed += OnMove;
             _playerControls.Player.FirePrimary.started += OnPrimaryFire;
             _playerControls.Player.FirePrimary.canceled += OnPrimaryFire;
             _playerControls.Player.FireSecondary.started += OnSecondaryFire;
@@ -32,6 +33,7 @@ namespace SpaceShooter
             base.Start();
 
             _shootAbilities = GetComponents<AbilityShoot>();
+            _playerMovement = GetComponent<PlayerMovement>();
         }
 
         #region Shoot Logic
@@ -62,19 +64,20 @@ namespace SpaceShooter
 
         #endregion
 
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             _playerControls.Player.Enable();
         }
 
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
             _playerControls.Player.Disable();
         }
 
-        void Update()
+        protected virtual void FixedUpdate()
         {
-
+            var amount = _playerControls.Player.Move.ReadValue<Vector2>();
+            _playerMovement.Move(amount);
         }
     }
 }

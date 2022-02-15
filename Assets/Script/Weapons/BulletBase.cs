@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[AddComponentMenu("")]
 public class BulletBase : MonoBehaviour
 {
     public float speed = 10;
@@ -18,7 +19,7 @@ public class BulletBase : MonoBehaviour
 
     protected virtual void OnEnable()
     {
-        StartCoroutine("AutoDeactivation");
+        StartCoroutine(nameof(AutoDeactivation));
     }
 
     protected virtual void OnDisable()

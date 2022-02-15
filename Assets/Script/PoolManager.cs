@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace SpaceShooter
 {
+    [AddComponentMenu("SpaceShooter/PoolMAnager")]
     public class PoolManager : MonoBehaviour
     {
         public ObjectPoolScriptableObject[] poolList;

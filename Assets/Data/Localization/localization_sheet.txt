@@ -1,0 +1,7 @@
+id,en_UK,it_IT,es_ES
+KEY_CANCEL,Cancel,Annulla,Annulla
+KEY_CONFIRM,Confirm,Conferma,Conferma
+KEY_OK,Ok,Ok,Ok
+KEY_QUIT,Quit,Abbandona,Abbandona
+KEY_CLOSE,Close,Chiudi,Chiudi
+KEY_POINTS,Points,Punti,Punti

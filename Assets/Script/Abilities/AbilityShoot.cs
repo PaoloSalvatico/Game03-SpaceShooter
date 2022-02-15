@@ -6,6 +6,7 @@ namespace SpaceShooter
     /// <summary>
     /// Gestisce la possibilità di sparare colpi singoli oppure a ripetizione
     /// </summary>
+    [AddComponentMenu("SpaceShooter/Abilities/ShootAbility")]
     public class AbilityShoot : AbstractAbility
     {
         [Header("Shoot Stats")]
