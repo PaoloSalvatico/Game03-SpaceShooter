@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System.IO;
+using UnityEditor.Presets;
 
 namespace SpaceShooter.EditorUtils
 {
@@ -19,7 +20,7 @@ namespace SpaceShooter.EditorUtils
         [MenuItem("Assets/Space Shooter/Generate Enemy Data")]
         public static void GenerateEnemyData()
         {
-            var generatedFilesFolder = Application.dataPath + "/" + G.GENERATED_ENEMY_DATA_FOLDER;
+            var generatedFilesFolder = $"{Application.dataPath}/{G.GENERATED_ENEMY_DATA_FOLDER}";
             if (!Directory.Exists(generatedFilesFolder))
             {
                 Directory.CreateDirectory(generatedFilesFolder);
@@ -31,10 +32,10 @@ namespace SpaceShooter.EditorUtils
                 {
                     file.Delete(); 
                 }
-                foreach (var dir in di.GetDirectories())
-                {
-                    dir.Delete(true); 
-                }
+                // foreach (var dir in di.GetDirectories())
+                // {
+                //    dir.Delete(true); 
+                // }
             }
             // Lettura del file
             var obj = Selection.activeObject;
@@ -56,6 +57,43 @@ namespace SpaceShooter.EditorUtils
             }
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
+
+        }
+
+        [MenuItem("GameObject/Space Shooter/Create Enemy Ship")]
+        public static void CreateEnemyShip()
+        {
+            var go = new GameObject("Enemy Ship - Generated");
+            go.AddComponent<EnemyShipController>();
+            go.AddComponent<AbilityShoot>();
+            go.AddComponent<SpriteRenderer>();
+            var collider = go.AddComponent<BoxCollider2D>();
+            Preset colliderPreset = Resources.Load<Preset>("ShipPresets/ShipColliderRegular");
+            colliderPreset.ApplyTo(collider);
+
+            Selection.activeObject = go;
+        }
+
+        [MenuItem("Assets/Space Shooter/Create Enemy Ship", true)]
+        public static bool CreateEnemyShipFromData_Validation()
+        {
+            return Selection.activeObject is ShipDataScriptableObject;
+        }
+
+        [MenuItem("Assets/Space Shooter/Create Enemy Ship")]
+        public static void CreateEnemyShipFromData()
+        {
+            var go = new GameObject("Enemy Ship - Generated");
+            var controller = go.AddComponent<EnemyShipController>();
+            controller.Data = Selection.activeObject as ShipDataScriptableObject;
+            go.AddComponent<AbilityShoot>();
+            go.AddComponent<SpriteRenderer>();
+            var collider = go.AddComponent<BoxCollider2D>();
+            Preset colliderPreset = Resources.Load<Preset>("ShipPresets/ShipColliderRegular");
+            colliderPreset.ApplyTo(collider);
+
+            Selection.activeObject = go;
+
         }
     }
 }

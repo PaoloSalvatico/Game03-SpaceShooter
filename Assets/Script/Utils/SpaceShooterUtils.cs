@@ -20,6 +20,12 @@ namespace SpaceShooter.EditorUtils
             controller.Data = data;
             go.AddComponent<PlayerMovement>();
             go.AddComponent<AbilityShoot>();
+            var collider = go.AddComponent<BoxCollider2D>();
+            Preset colliderPreset = Resources.Load<Preset>("ShipPresets/ShipColliderRegular");
+            colliderPreset.ApplyTo(collider);
+
+            Selection.activeObject = go;
         }
+
     }
 }
