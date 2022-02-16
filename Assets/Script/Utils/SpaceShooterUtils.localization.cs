@@ -27,7 +27,11 @@ namespace SpaceShooter.EditorUtils
             var dataAsString = File.ReadAllText(readPath);
             var rows = dataAsString.Split('\n');
             var langs = rows[0].Split(',');
-
+            if(langs[0] != G.LANGUAGE_ID)
+            {
+                EditorUtility.DisplayDialog("Errore!", "Il file per la generazione della localizzazione non sembra essere corretto", "Chiudi");
+                return;
+            }
             // Fase di scrittura
             var generatedFilesFolder = Application.dataPath + G.GENERATED_FILES_FOLDER;
             if (!Directory.Exists(generatedFilesFolder))
@@ -81,7 +85,6 @@ namespace SpaceShooter.EditorUtils
 
             sb.AppendLine("\t}");
             sb.AppendLine("}");
-
 
             using var sw = File.CreateText(writePath);
             sw.Write(sb.ToString());

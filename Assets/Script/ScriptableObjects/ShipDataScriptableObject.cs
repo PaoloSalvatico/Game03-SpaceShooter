@@ -22,8 +22,53 @@ namespace SpaceShooter
         [SerializeField]
         protected ObjectPoolScriptableObject _secondaryWeaponPool;
 
-        public float ForwardSpeed { get { return _forwardSpeed; } }
-        public float SideSpeed { get { return _forwardSpeed; } }
+        public float ForwardSpeed
+        {
+            get
+            {
+                return _forwardSpeed;
+            }
+            set
+            {
+                _forwardSpeed = value;
+            }
+        }
+        public float SideSpeed
+        {
+            get
+            {
+                return _sideSpeed;
+            }
+            set
+            {
+                _sideSpeed = value;
+            }
+        }
+
+        public ObjectPoolScriptableObject PrimaryWeaponPool
+        {
+            get
+            {
+                return _primaryWeaponPool;
+            }
+            set
+            {
+                _primaryWeaponPool = value;
+            }
+        }
+
+        public ObjectPoolScriptableObject SecondaryWeaponPool
+        {
+            get
+            {
+                return _secondaryWeaponPool;
+            }
+            set
+            {
+                _secondaryWeaponPool = value;
+            }
+        }
+
         public GameObject PrimaryBullet {
             get
             {

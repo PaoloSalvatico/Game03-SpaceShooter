@@ -22,7 +22,7 @@ namespace  SpaceShooter
             _data = rawData.text;
 
             var rows = _data.Split('\n');
-            var langs = rows[0].Split(',');
+            var langs = rows[0].Trim().Split(',');
             
             // Crea la tabella
             _table = new DataTable();
@@ -38,10 +38,9 @@ namespace  SpaceShooter
                 primaryKeyColumns[0] = dataColumn;
                 _table.PrimaryKey = primaryKeyColumns;
             }
-
             for (var i = 1; i < rows.Length; i++)
             {
-                object[] row = rows[i].Split(',');
+                object[] row = rows[i].Trim().Split(',');
                 _table.Rows.Add(row);
             }
         }

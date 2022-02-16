@@ -890,7 +890,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Points:'
+  m_text: '---:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bdde083ca453c9c4f89f887de99d8216, type: 2}
   m_sharedMaterial: {fileID: 4812868574719997619, guid: bdde083ca453c9c4f89f887de99d8216, type: 2}

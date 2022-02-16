@@ -1,0 +1,5 @@
+Ship Model,Forward Speed,Side Speed,Weapon Pool,Animation Curve
+Type 1,2,2,BaseWeapon02_Pool,curve_01
+Type 2,3,3,BaseWeapon01_Pool,curve_01
+Type 3,4,4,BaseWeapon03_Pool,curve_01
+Type 4,5,5,BaseWeapon02_Pool,curve_01
