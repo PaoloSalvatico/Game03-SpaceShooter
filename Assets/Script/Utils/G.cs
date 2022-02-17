@@ -20,5 +20,13 @@ public static class G
 
     #region Resources
     public const string WEAPONS_FOLDER = "Data/Weapons/";
+    public const string ANIMATION_CURVES_FOLDER = "AnimationCurves/";
     #endregion
+
+    #region Presets
+
+    public const string PRESET_REGULAR_COLLIDER = "ShipPresets/ShipColliderRegular";
+
+    #endregion
+
 }

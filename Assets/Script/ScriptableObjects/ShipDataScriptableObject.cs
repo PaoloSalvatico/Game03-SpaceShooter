@@ -15,14 +15,16 @@ namespace SpaceShooter
         [SerializeField]
         protected float _sideSpeed = 3;
 
+        [SerializeField]
+        [Space(10)]
+        protected CurveScriptableObject _movementCurve;
+
         [Header("Weapon System")]
         [SerializeField]
         protected ObjectPoolScriptableObject _primaryWeaponPool;
 
         [SerializeField]
         protected ObjectPoolScriptableObject _secondaryWeaponPool;
-
-        public AnimationCurve curve;
 
         public float ForwardSpeed
         {
@@ -68,6 +70,18 @@ namespace SpaceShooter
             set
             {
                 _secondaryWeaponPool = value;
+            }
+        }
+
+        public CurveScriptableObject MovementCurve
+        {
+            get
+            {
+                return _movementCurve;
+            }
+            set
+            {
+                _movementCurve = value;
             }
         }
 

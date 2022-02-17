@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11bec9bd94f922d46ab05316316cbea3, type: 3}
   m_Name: ShipData 1
   m_EditorClassIdentifier: 
-  _forwardSpeed: 5
-  _sideSpeed: 3
+  _forwardSpeed: 6
+  _sideSpeed: 6
+  _movementCurve: {fileID: 0}
   _primaryWeaponPool: {fileID: 11400000, guid: 20fb2d92ffd2a7643b67ee089b6417dd, type: 2}
   _secondaryWeaponPool: {fileID: 11400000, guid: ab2bd612a243d7e4e9fdbd906dba971e, type: 2}

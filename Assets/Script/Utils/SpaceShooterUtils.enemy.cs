@@ -53,45 +53,30 @@ namespace SpaceShooter.EditorUtils
                 so.SideSpeed = float.Parse(d[2]);
                 var weaponPool = Resources.Load<ObjectPoolScriptableObject>($"{G.WEAPONS_FOLDER}{d[3]}");
                 so.PrimaryWeaponPool = weaponPool;
-                //var movementCurve = Resources.Load<AnimationCurve>()
+                var movementCurve = Resources.Load<CurveScriptableObject>($"{G.ANIMATION_CURVES_FOLDER}{d[4]}");
+                so.MovementCurve = movementCurve;
                 AssetDatabase.CreateAsset(so, $"{G.ASSETS_FOLDER}{G.GENERATED_ENEMY_DATA_FOLDER}{G.GENERATED_ENEMY_FILE_PREFIX} - {d[0]}.asset");
                 AssetDatabase.SaveAssets();
 
                 CreateEnemyShipPrefabFromData(so);
             }
             AssetDatabase.Refresh();
-
         }
 
         public static void CreateEnemyShipPrefabFromData(ShipDataScriptableObject data)
         {
             var go = new GameObject("Enemy Ship - Generated");
             var controller = go.AddComponent<EnemyShipController>();
-            controller.Data = Selection.activeObject as ShipDataScriptableObject;
+            controller.Data = data;
             go.AddComponent<AbilityShoot>();
             go.AddComponent<SpriteRenderer>();
             var collider = go.AddComponent<BoxCollider2D>();
-            Preset colliderPreset = Resources.Load<Preset>("ShipPresets/ShipColliderRegular");
+            var colliderPreset = Resources.Load<Preset>(G.PRESET_REGULAR_COLLIDER);
             colliderPreset.ApplyTo(collider);
-
             PrefabUtility.SaveAsPrefabAsset(go, $"Assets/Prefab/{data.name}.prefab");
             AssetDatabase.Refresh();
         }
-
-        [MenuItem("GameObject/Space Shooter/Create Enemy Ship")]
-        public static void CreateEnemyShip()
-        {
-            var go = new GameObject("Enemy Ship - Generated");
-            go.AddComponent<EnemyShipController>();
-            go.AddComponent<AbilityShoot>();
-            go.AddComponent<SpriteRenderer>();
-            var collider = go.AddComponent<BoxCollider2D>();
-            Preset colliderPreset = Resources.Load<Preset>("ShipPresets/ShipColliderRegular");
-            colliderPreset.ApplyTo(collider);
-
-            Selection.activeObject = go;
-        }
-
+        
         [MenuItem("Assets/Space Shooter/Create Enemy Ship", true)]
         public static bool CreateEnemyShipFromData_Validation()
         {
@@ -107,7 +92,7 @@ namespace SpaceShooter.EditorUtils
             go.AddComponent<AbilityShoot>();
             go.AddComponent<SpriteRenderer>();
             var collider = go.AddComponent<BoxCollider2D>();
-            Preset colliderPreset = Resources.Load<Preset>("ShipPresets/ShipColliderRegular");
+            var colliderPreset = Resources.Load<Preset>("ShipPresets/ShipColliderRegular");
             colliderPreset.ApplyTo(collider);
 
             PrefabUtility.SaveAsPrefabAsset(go, $"Assets/Prefab/{Selection.activeObject}.prefab");

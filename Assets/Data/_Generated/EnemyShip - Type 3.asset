@@ -16,3 +16,4 @@ MonoBehaviour:
   _sideSpeed: 4
   _primaryWeaponPool: {fileID: 11400000, guid: 20fb2d92ffd2a7643b67ee089b6417dd, type: 2}
   _secondaryWeaponPool: {fileID: 0}
+  _movementCurve: {fileID: 11400000, guid: 13f845acee1a55841b3e6284ec7570d8, type: 2}
