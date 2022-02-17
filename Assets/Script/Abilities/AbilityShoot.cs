@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using SpaceShooter.Interfaces;
 
 namespace SpaceShooter
 {
@@ -76,6 +77,10 @@ namespace SpaceShooter
         {
             bullet.transform.position = spawnPoint.position;
             bullet.transform.rotation = spawnPoint.rotation;
+
+            var b = bullet.GetComponent<IOwnable>();
+            if (b == null) return;
+            b.Owner = gameObject;
         }
 
         public override void EndAbility()

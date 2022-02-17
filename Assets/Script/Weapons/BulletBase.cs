@@ -1,43 +1,64 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SpaceShooter.Interfaces;
 
-[RequireComponent(typeof(Rigidbody2D))]
-[AddComponentMenu("")]
-public class BulletBase : MonoBehaviour
+namespace SpaceShooter
 {
-    public float speed = 10;
-
-    public float lifetime = 5;
-
-    protected Rigidbody2D _rb;
-
-    protected virtual void Awake()
+    [RequireComponent(typeof(Rigidbody2D))]
+    [AddComponentMenu("")]
+    public class BulletBase : MonoBehaviour, IOwnable
     {
-        _rb = GetComponent<Rigidbody2D>();
+        public float speed = 10;
+
+        public float lifetime = 5;
+
+        protected Rigidbody2D _rb;
+
+        public GameObject Owner 
+        { 
+            get; 
+            set;
+        }
+
+        protected virtual void Awake()
+        {
+            _rb = GetComponent<Rigidbody2D>();
+        }
+
+        protected virtual void OnEnable()
+        {
+            StartCoroutine(nameof(AutoDeactivation));
+        }
+
+        protected virtual void OnDisable()
+        {
+            StopCoroutine("AutoDeactivation");
+        }
+
+        protected virtual IEnumerator AutoDeactivation()
+        {
+            yield return new WaitForEndOfFrame();
+            _rb.velocity = transform.up * speed;
+
+            yield return new WaitForSeconds(lifetime);
+            gameObject.SetActive(false);
+        }
+
+        protected virtual void OnBecameInvisible()
+        {
+            gameObject.SetActive(false);
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            var comp = collision.gameObject.GetComponent<EnemyHealth>();
+            if (comp != null) return;
+            comp.Damage(Owner);
+            Owner = null;
+
+            gameObject.SetActive(false);
+        }
     }
 
-    protected virtual void OnEnable()
-    {
-        StartCoroutine(nameof(AutoDeactivation));
-    }
-
-    protected virtual void OnDisable()
-    {
-        StopCoroutine("AutoDeactivation");
-    }
-
-    protected virtual IEnumerator AutoDeactivation()
-    {
-        yield return new WaitForEndOfFrame();
-        _rb.velocity = transform.up * speed;
-
-        yield return new WaitForSeconds(lifetime);
-        gameObject.SetActive(false);
-    }
-
-    protected virtual void OnBecameInvisible()
-    {
-        gameObject.SetActive(false);
-    }
 }
