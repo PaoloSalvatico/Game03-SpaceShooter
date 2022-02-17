@@ -53,11 +53,29 @@ namespace SpaceShooter.EditorUtils
                 so.SideSpeed = float.Parse(d[2]);
                 var weaponPool = Resources.Load<ObjectPoolScriptableObject>($"{G.WEAPONS_FOLDER}{d[3]}");
                 so.PrimaryWeaponPool = weaponPool;
+                //var movementCurve = Resources.Load<AnimationCurve>()
                 AssetDatabase.CreateAsset(so, $"{G.ASSETS_FOLDER}{G.GENERATED_ENEMY_DATA_FOLDER}{G.GENERATED_ENEMY_FILE_PREFIX} - {d[0]}.asset");
+                AssetDatabase.SaveAssets();
+
+                CreateEnemyShipPrefabFromData(so);
             }
-            AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
 
+        }
+
+        public static void CreateEnemyShipPrefabFromData(ShipDataScriptableObject data)
+        {
+            var go = new GameObject("Enemy Ship - Generated");
+            var controller = go.AddComponent<EnemyShipController>();
+            controller.Data = Selection.activeObject as ShipDataScriptableObject;
+            go.AddComponent<AbilityShoot>();
+            go.AddComponent<SpriteRenderer>();
+            var collider = go.AddComponent<BoxCollider2D>();
+            Preset colliderPreset = Resources.Load<Preset>("ShipPresets/ShipColliderRegular");
+            colliderPreset.ApplyTo(collider);
+
+            PrefabUtility.SaveAsPrefabAsset(go, $"Assets/Prefab/{data.name}.prefab");
+            AssetDatabase.Refresh();
         }
 
         [MenuItem("GameObject/Space Shooter/Create Enemy Ship")]
@@ -92,8 +110,8 @@ namespace SpaceShooter.EditorUtils
             Preset colliderPreset = Resources.Load<Preset>("ShipPresets/ShipColliderRegular");
             colliderPreset.ApplyTo(collider);
 
-            Selection.activeObject = go;
-
+            PrefabUtility.SaveAsPrefabAsset(go, $"Assets/Prefab/{Selection.activeObject}.prefab");
+            AssetDatabase.Refresh();
         }
     }
 }

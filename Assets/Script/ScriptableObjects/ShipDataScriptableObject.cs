@@ -22,6 +22,8 @@ namespace SpaceShooter
         [SerializeField]
         protected ObjectPoolScriptableObject _secondaryWeaponPool;
 
+        public AnimationCurve curve;
+
         public float ForwardSpeed
         {
             get
