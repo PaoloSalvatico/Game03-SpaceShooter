@@ -18,6 +18,8 @@ namespace SpaceShooter.Tools
         private Object secondaryWeaponPool;
         private ShipSize shipSize;
 
+        public static object ScenemManager { get; private set; }
+
         [MenuItem("Space Shooter/Ship Configurator")]
         public static void OpenWindow()
         {

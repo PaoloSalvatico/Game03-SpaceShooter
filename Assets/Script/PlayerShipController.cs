@@ -17,6 +17,7 @@ namespace SpaceShooter
 
         protected AbilityShoot[] _shootAbilities;
         protected PlayerMovement _playerMovement;
+        
 
         private void Awake()
         {
