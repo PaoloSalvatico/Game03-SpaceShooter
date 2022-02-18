@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3821553000124526515}
   - component: {fileID: 3821553000124526512}
   - component: {fileID: 3821553000124526513}
-  - component: {fileID: -8897990282447197899}
-  m_Layer: 6
+  - component: {fileID: -9094257643720923357}
+  m_Layer: 8
   m_Name: BulletBase02Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   lifetime: 5
---- !u!61 &-8897990282447197899
+--- !u!61 &-9094257643720923357
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

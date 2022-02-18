@@ -19,7 +19,6 @@ namespace SpaceShooter
         {
             var cam = Camera.main;
             var screenSize = cam.ViewportToWorldPoint(Vector2.one);
-            var screenWidth = screenSize.x;
             var screenHeight = screenSize.y;
 
             transform.position = new Vector3(0, screenHeight, 0);

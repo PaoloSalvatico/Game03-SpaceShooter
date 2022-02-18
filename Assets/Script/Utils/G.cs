@@ -29,4 +29,8 @@ public static class G
 
     #endregion
 
+    #region ShipConfigurator
+    public const string CONF_SHIP_NAME_DEFAULT = "PlayerShip";
+
+    #endregion
 }

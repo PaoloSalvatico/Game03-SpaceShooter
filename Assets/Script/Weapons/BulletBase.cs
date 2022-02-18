@@ -15,12 +15,6 @@ namespace SpaceShooter
 
         protected Rigidbody2D _rb;
 
-        public GameObject Owner 
-        { 
-            get; 
-            set;
-        }
-
         protected virtual void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
@@ -53,12 +47,16 @@ namespace SpaceShooter
         private void OnCollisionEnter2D(Collision2D collision)
         {
             var comp = collision.gameObject.GetComponent<EnemyHealth>();
-            if (comp != null) return;
-            comp.Damage(Owner);
+            if (comp != null)
+            {
+                comp.Damage(Owner);
+            }
             Owner = null;
-
             gameObject.SetActive(false);
         }
+
+        public GameObject Owner { get; set; }
+
     }
 
 }

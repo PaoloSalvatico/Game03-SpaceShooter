@@ -23,7 +23,6 @@ namespace SpaceShooter
             top.position = new Vector3(0, screenHeight, 0);
             bottom.position = new Vector3(0, -screenHeight, 0);
         }
-
     }
     
 }

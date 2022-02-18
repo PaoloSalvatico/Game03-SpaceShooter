@@ -6,11 +6,7 @@ namespace SpaceShooter.Interfaces
 {
     public interface IOwnable
     {
-        GameObject Owner
-        {
-            get;
-            set;
-        }
+        GameObject Owner { get; set; }
     }
-}
 
+}

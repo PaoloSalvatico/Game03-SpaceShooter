@@ -6,8 +6,6 @@ namespace SpaceShooter
 {
     public class EnemyShipController : AbstractShipController
     {
-        public ObserverScriptableObject shipDestroyedNotifier;
-
         public int points;
 
         private void Update()
@@ -18,12 +16,6 @@ namespace SpaceShooter
             var curve = _data.MovementCurve.Curve;
             transl = transform.right * curve.Evaluate(Time.time) * .009f;
             transform.Translate(transl);
-        }
-
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            shipDestroyedNotifier.Notify(gameObject);
-            gameObject.SetActive(false);
         }
     }
 

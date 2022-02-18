@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 namespace SpaceShooter
 {
     public enum ShipSize
@@ -11,5 +7,5 @@ namespace SpaceShooter
         Big,
         Huge
     }
-}
 
+}

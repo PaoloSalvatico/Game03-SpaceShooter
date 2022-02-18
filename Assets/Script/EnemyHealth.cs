@@ -6,14 +6,14 @@ namespace SpaceShooter
 {
     public class EnemyHealth : MonoBehaviour
     {
-        public ObserverScriptableObject shipdestroydNotifier;
+        public ObserverScriptableObject shipDestroyedNotifier;
 
         public void Damage(GameObject provoker)
         {
-            Debug.Log("Damaged by " + provoker);
-            shipdestroydNotifier.Notify(gameObject);
+            Debug.Log("Damaged by: " + provoker);
+            shipDestroyedNotifier.Notify(gameObject);
             gameObject.SetActive(false);
         }
     }
-}
 
+}

@@ -77,7 +77,6 @@ namespace SpaceShooter
         {
             bullet.transform.position = spawnPoint.position;
             bullet.transform.rotation = spawnPoint.rotation;
-
             var b = bullet.GetComponent<IOwnable>();
             if (b == null) return;
             b.Owner = gameObject;

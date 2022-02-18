@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8973798557069747833}
   - component: {fileID: 8841346950025511500}
   - component: {fileID: 1355469537852742034}
+  - component: {fileID: 8742462902154275529}
   - component: {fileID: 2268876035426846842}
-  - component: {fileID: -8883314465940426254}
   m_Layer: 7
   m_Name: EnemyShip - Type 2 (SpaceShooter.ShipDataScriptableObject)
   m_TagString: Untagged
@@ -48,7 +48,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data: {fileID: 11400000, guid: 38075d80e23221b4ab9fffeb4d39b151, type: 2}
-  shipDestroyedNotifier: {fileID: 11400000, guid: d13d3c70250c0f34f9d07d662aaeafa5, type: 2}
   points: 3
 --- !u!114 &8841346950025511500
 MonoBehaviour:
@@ -119,6 +118,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8742462902154275529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4820867957448873170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 595f17a13ba5b674da312e28888ef85e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipDestroyedNotifier: {fileID: 11400000, guid: d13d3c70250c0f34f9d07d662aaeafa5, type: 2}
 --- !u!61 &2268876035426846842
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -145,16 +157,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 1.28}
   m_EdgeRadius: 0
---- !u!114 &-8883314465940426254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4820867957448873170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb15f903d4dc17941b4ec5db61402bc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shipdestroydNotifier: {fileID: 11400000, guid: d13d3c70250c0f34f9d07d662aaeafa5, type: 2}

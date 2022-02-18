@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 3821553000124526518, guid: 954babea8b133044bbb47812a8031197, type: 3}
   _startingPoolSize: 100
-  _openPool: 0
+  _openPool: 1

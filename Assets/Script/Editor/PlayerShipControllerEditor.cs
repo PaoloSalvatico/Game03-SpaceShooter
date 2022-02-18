@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEditor;
 using SpaceShooter;
+using UnityEngine;
 
 namespace SpaceShooter.Editor
 {
@@ -10,27 +8,31 @@ namespace SpaceShooter.Editor
     public class PlayerShipControllerEditor : UnityEditor.Editor
     {
         PlayerShipController controller;
-        private SerializedProperty _testGameObj;
 
-        private void OnEneanle()
+        private SerializedProperty _testGameObject;
+
+
+        private void OnEnable()
         {
             controller = target as PlayerShipController;    
         }
+
         public override void OnInspectorGUI()
         {
-            _testGameObj = serializedObject.FindProperty("testGamwObject");
+            _testGameObject = serializedObject.FindProperty("testGameObject");
 
             serializedObject.Update();
-            EditorGUILayout.PropertyField(_testGameObj);
+            EditorGUILayout.PropertyField(_testGameObject);
             serializedObject.ApplyModifiedProperties();
 
-            EditorGUILayout.LabelField(controller.Data.ForwardSpeed.ToString());
-            EditorGUILayout.LabelField(controller.Data.ForwardSpeed.ToString());
+            //base.DrawDefaultInspector();
+            //            base.OnInspectorGUI();
+            EditorGUILayout.LabelField($"Forward Speed: {controller.Data.ForwardSpeed}");
+            EditorGUILayout.LabelField($"Side Speed: {controller.Data.SideSpeed}");
 
             var rb = controller.GetComponent<Rigidbody2D>();
-            EditorGUILayout.LabelField("Velocity");
+            EditorGUILayout.LabelField($"Velocity Magnitude: {rb.velocity.magnitude}");
         }
-
     }
-}
 
+}
