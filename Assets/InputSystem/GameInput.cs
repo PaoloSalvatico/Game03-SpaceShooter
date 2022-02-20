@@ -43,6 +43,14 @@ namespace SpaceShooter
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Spin"",
+                    ""type"": ""Value"",
+                    ""id"": ""c71cf5b6-8ffe-47ed-a4ae-e53c5c854f1c"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -221,6 +229,39 @@ namespace SpaceShooter
                     ""action"": ""FireSecondary"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""L&K"",
+                    ""id"": ""304b6c3b-e526-4f4c-965f-8d0347408831"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Spin"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""1fcb8f64-ef5d-4cc8-8255-e67b2c6ab0cd"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Spin"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""75ab9a0e-72d5-4155-8702-a8d66bd44b51"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Spin"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -293,6 +334,7 @@ namespace SpaceShooter
             m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
             m_Player_FirePrimary = m_Player.FindAction("FirePrimary", throwIfNotFound: true);
             m_Player_FireSecondary = m_Player.FindAction("FireSecondary", throwIfNotFound: true);
+            m_Player_Spin = m_Player.FindAction("Spin", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -345,6 +387,7 @@ namespace SpaceShooter
         private readonly InputAction m_Player_Move;
         private readonly InputAction m_Player_FirePrimary;
         private readonly InputAction m_Player_FireSecondary;
+        private readonly InputAction m_Player_Spin;
         public struct PlayerActions
         {
             private @GameInput m_Wrapper;
@@ -352,6 +395,7 @@ namespace SpaceShooter
             public InputAction @Move => m_Wrapper.m_Player_Move;
             public InputAction @FirePrimary => m_Wrapper.m_Player_FirePrimary;
             public InputAction @FireSecondary => m_Wrapper.m_Player_FireSecondary;
+            public InputAction @Spin => m_Wrapper.m_Player_Spin;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -370,6 +414,9 @@ namespace SpaceShooter
                     @FireSecondary.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFireSecondary;
                     @FireSecondary.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFireSecondary;
                     @FireSecondary.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFireSecondary;
+                    @Spin.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpin;
+                    @Spin.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpin;
+                    @Spin.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpin;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -383,6 +430,9 @@ namespace SpaceShooter
                     @FireSecondary.started += instance.OnFireSecondary;
                     @FireSecondary.performed += instance.OnFireSecondary;
                     @FireSecondary.canceled += instance.OnFireSecondary;
+                    @Spin.started += instance.OnSpin;
+                    @Spin.performed += instance.OnSpin;
+                    @Spin.canceled += instance.OnSpin;
                 }
             }
         }
@@ -437,6 +487,7 @@ namespace SpaceShooter
             void OnMove(InputAction.CallbackContext context);
             void OnFirePrimary(InputAction.CallbackContext context);
             void OnFireSecondary(InputAction.CallbackContext context);
+            void OnSpin(InputAction.CallbackContext context);
         }
     }
 }

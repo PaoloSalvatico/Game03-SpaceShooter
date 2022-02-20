@@ -36,6 +36,12 @@ namespace SpaceShooter
             var speed = new Vector2(amount.x * _data.SideSpeed, amount.y * _data.ForwardSpeed);
             _rb.velocity = Vector2.Lerp(_rb.velocity, speed, Time.fixedDeltaTime * 1.5f);
         }
+
+        public virtual void Spin(Vector2 amount)
+        {
+            var speed = amount.x * _data.RotateSpeed + amount.y * _data.RotateSpeed;
+            _rb.AddTorque(speed);
+        }
     }
 
 }

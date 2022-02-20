@@ -80,6 +80,8 @@ namespace SpaceShooter
         {
             var amount = _playerControls.Player.Move.ReadValue<Vector2>();
             _playerMovement.Move(amount);
+            var speed = _playerControls.Player.Spin.ReadValue<Vector2>();
+            _playerMovement.Spin(speed);
         }
     }
 }

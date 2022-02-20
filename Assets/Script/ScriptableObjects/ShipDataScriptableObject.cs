@@ -16,6 +16,9 @@ namespace SpaceShooter
         protected float _sideSpeed = 3;
 
         [SerializeField]
+        protected float _rotationSpeed = 20;
+
+        [SerializeField]
         [Space(10)]
         protected CurveScriptableObject _movementCurve;
 
@@ -46,6 +49,18 @@ namespace SpaceShooter
             set
             {
                 _sideSpeed = value;
+            }
+        }
+
+        public  float RotateSpeed
+        {
+            get
+            {
+                return _rotationSpeed;
+            }
+            set
+            {
+                _rotationSpeed = value;
             }
         }
 
